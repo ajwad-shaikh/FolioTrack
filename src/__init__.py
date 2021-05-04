@@ -1,4 +1,6 @@
-from flask import Flask
+from flask import Flask, jsonify
+from .agents.fetch_trade_agent import fetchTradesAgency
+from .agents.fetch_portfolio_agency import fetchPortfolioAgency
 
 app = Flask(__name__)
 
@@ -9,7 +11,7 @@ def ping():
 @app.route("/api/trade", methods=["GET"])
 def fetchTrades():
     # Fetch Trades
-    return "Fetch Trades"
+    return jsonify(fetchTradesAgency())
 
 @app.route("/api/trade", methods=["POST"])
 def addTrade():
@@ -29,7 +31,7 @@ def removeTrade():
 @app.route("/api/portfolio", methods=["GET"])
 def fetchPortfolio():
     # Fetch Portfolio
-    return "Portfolio"
+    return jsonify(fetchPortfolioAgency())
 
 @app.route("/api/returns", methods=["GET"])
 def fetchReturns():
