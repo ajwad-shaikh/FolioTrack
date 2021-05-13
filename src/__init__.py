@@ -1,6 +1,6 @@
-from flask import Flask, jsonify
-from .agents.fetch_trade_agent import fetchTradesAgency
-from .agents.fetch_portfolio_agency import fetchPortfolioAgency
+from flask import Flask, jsonify, request
+from .agents.trade_agent import fetchTradesAgency, addTradesAgency
+from .agents.portfolio_agent import fetchPortfolioAgency
 
 app = Flask(__name__)
 
@@ -15,8 +15,7 @@ def fetchTrades():
 
 @app.route("/api/trade", methods=["POST"])
 def addTrade():
-    # Add Trade
-    return "Add Trade"
+    return addTradesAgency(request_json=request.get_json(silent=True))
 
 @app.route("/api/trade", methods=["PATCH"])
 def updateTrade():
