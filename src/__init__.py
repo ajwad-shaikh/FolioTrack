@@ -1,4 +1,5 @@
-from flask import Flask, jsonify, request
+from .utils.constants import *
+from flask import Flask, request
 from .agents.trade_agent import fetchTradesAgency, addTradesAgency
 from .agents.portfolio_agent import fetchPortfolioAgency
 
@@ -11,11 +12,16 @@ def ping():
 @app.route("/api/trade", methods=["GET"])
 def fetchTrades():
     # Fetch Trades
-    return jsonify(fetchTradesAgency())
+    include_inactive = request.args.get(INCLUDE_INACTIVE_TRADES)
+    if (include_inactive == 1):
+        include_inactive = True
+    else:
+        include_inactive = False
+    return fetchTradesAgency(include_inactive)
 
 @app.route("/api/trade", methods=["POST"])
 def addTrade():
-    return addTradesAgency(request_json=request.get_json(silent=True))
+    return addTradesAgency(trade_request=request.get_json(silent=True))
 
 @app.route("/api/trade", methods=["PATCH"])
 def updateTrade():
@@ -30,7 +36,7 @@ def removeTrade():
 @app.route("/api/portfolio", methods=["GET"])
 def fetchPortfolio():
     # Fetch Portfolio
-    return jsonify(fetchPortfolioAgency())
+    return fetchPortfolioAgency()
 
 @app.route("/api/returns", methods=["GET"])
 def fetchReturns():
