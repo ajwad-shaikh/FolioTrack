@@ -21,13 +21,17 @@ IS_ACTIVE = 'is_active'
 BUY = 'BUY'
 SELL = 'SELL'
 
-# Response 
+# Response / Request
 MESSAGE_KEY = 'message'
-TRADE_ID_KEY = 'trade_id'
+TRADE_ID = 'trade_id'
+INCLUDE_INACTIVE_TRADES = 'includeInactive'
+
+# Messages
+VALID = 'Valid request.'
 SUCCESS = 'Successfully executed.'
 INVALID_TRADE_PARAMETERS_ERROR = 'You seem to have passed invalid trade parameters to the request. Required parameters are \'price\', \'quantity\', \'ticker\' and \'action\' in \'application/json\'.'
 SHORT_QUANTITY_ERROR = 'You cannot place a sell trade for more quantity of shares than you currently hold.'
 INVALID_ACTION_ERROR = 'Trade action can only be \'BUY\' or \'SELL\'.'
-
-# Request
-INCLUDE_INACTIVE_TRADES = 'includeInactive'
+INVALID_REMOVE_REQUEST_PARAMS_ERROR = 'You seem to have passed invalid parameters to the remove request. Required parameter is \'trade_id\' in \'application/json\'.'
+SHORT_ERROR_CANNOT_CANCEL_BUY_ERROR = 'We cannot cancel the BUY trade as the net quantity in your portfolio is less than the trade quantity. Consider modifying the order instead.'
+INVALID_TRADE_ID_ERROR = 'We could not find an active trade matching this trade id'

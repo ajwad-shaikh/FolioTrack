@@ -1,9 +1,9 @@
 import firebase_admin
 from firebase_admin import credentials
-from firebase_admin import firestore
-import os
+from firebase_admin import firestore as firebase_firestore
 
 cred = credentials.Certificate("src/creds/service_account_key.json")
 firebase_admin.initialize_app(cred)
 
-db = firestore.client()
+db = firebase_firestore.client()
+firestore = firebase_firestore
