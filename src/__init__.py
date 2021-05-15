@@ -13,10 +13,12 @@ def ping():
 def fetchTrades():
     # Fetch Trades
     include_inactive = request.args.get(INCLUDE_INACTIVE_TRADES)
-    if (include_inactive == 1):
+    print(request.args)
+    if (include_inactive == '1'):
         include_inactive = True
     else:
         include_inactive = False
+    print(include_inactive)
     return fetchTradesAgency(include_inactive)
 
 @app.route("/api/trade", methods=["POST"])
@@ -43,3 +45,7 @@ def fetchPortfolio():
 def fetchReturns():
     # Fetch Returns
     return fetchReturnsAgency()
+
+if __name__ == '__main__':
+    # Threaded option to enable multiple instances for multiple user access support
+    app.run(threaded=True, port=5000)
