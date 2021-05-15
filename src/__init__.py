@@ -1,6 +1,6 @@
 from .utils.constants import *
 from flask import Flask, request
-from .agents.trade_agent import fetchTradesAgency, addTradesAgency, removeTradesAgency
+from .agents.trade_agent import fetchTradesAgency, addTradesAgency, removeTradesAgency, updateTradesAgency
 from .agents.portfolio_agent import fetchPortfolioAgency
 
 app = Flask(__name__)
@@ -27,7 +27,7 @@ def addTrade():
 @app.route("/api/trade", methods=["PATCH"])
 def updateTrade():
     # Update Trade
-    return "Update Trade"
+    return updateTradesAgency(update_request=request.get_json(silent=True))
 
 @app.route("/api/trade", methods=["DELETE"])
 def removeTrade():
