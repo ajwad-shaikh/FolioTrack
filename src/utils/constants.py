@@ -46,3 +46,7 @@ NO_NEED_FOR_UPDATE_ERROR = 'No need to update as value to be updated matches the
 
 # Live Price Constant
 LIVE_PRICE_CONSTANT = 100
+
+# Env variables
+
+SERVICE_ACCOUNT_KEY = 'SERVICE_ACCOUNT_KEY'

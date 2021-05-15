@@ -13,12 +13,10 @@ def ping():
 def fetchTrades():
     # Fetch Trades
     include_inactive = request.args.get(INCLUDE_INACTIVE_TRADES)
-    print(request.args)
     if (include_inactive == '1'):
         include_inactive = True
     else:
         include_inactive = False
-    print(include_inactive)
     return fetchTradesAgency(include_inactive)
 
 @app.route("/api/trade", methods=["POST"])
