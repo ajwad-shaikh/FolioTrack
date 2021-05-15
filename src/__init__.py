@@ -1,7 +1,7 @@
 from .utils.constants import *
 from flask import Flask, request
 from .agents.trade_agent import fetchTradesAgency, addTradesAgency, removeTradesAgency, updateTradesAgency
-from .agents.portfolio_agent import fetchPortfolioAgency
+from .agents.portfolio_agent import fetchPortfolioAgency, fetchReturnsAgency
 
 app = Flask(__name__)
 
@@ -42,4 +42,4 @@ def fetchPortfolio():
 @app.route("/api/returns", methods=["GET"])
 def fetchReturns():
     # Fetch Returns
-    return "Returns"
+    return fetchReturnsAgency()

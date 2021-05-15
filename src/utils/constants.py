@@ -27,6 +27,10 @@ TRADE_ID = 'trade_id'
 INCLUDE_INACTIVE_TRADES = 'includeInactive'
 FIELD_TO_UPDATE = 'fieldToUpdate'
 UPDATE_VALUE = 'updateValue'
+CUMULATIVE_RETURS = 'cumulativeReturns'
+SECURITIES = 'securities'
+LIVE_PRICE = 'livePrice'
+RETURNS = 'returns'
 
 # Messages
 VALID = 'Valid request.'
@@ -39,3 +43,6 @@ SHORT_ERROR_CANNOT_CANCEL_BUY_ERROR = 'We cannot cancel the BUY trade as the net
 INVALID_TRADE_ID_ERROR = 'We could not find an active trade matching this trade id'
 INVALID_UPDATE_REQUEST_PARAMS_ERROR = 'You seem to have passed invalid parameters to the update request. Required parameters are \'trade_id\', \'field_to_update\' and \'value\' in \'application/json\'.'
 NO_NEED_FOR_UPDATE_ERROR = 'No need to update as value to be updated matches the current value.'
+
+# Live Price Constant
+LIVE_PRICE_CONSTANT = 100
