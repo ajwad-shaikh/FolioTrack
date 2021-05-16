@@ -23,7 +23,7 @@ SELL = 'SELL'
 
 # Response / Request
 MESSAGE_KEY = 'message'
-TRADE_ID = 'trade_id'
+TRADE_ID = 'tradeId'
 INCLUDE_INACTIVE_TRADES = 'includeInactive'
 FIELD_TO_UPDATE = 'fieldToUpdate'
 UPDATE_VALUE = 'updateValue'
