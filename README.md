@@ -49,21 +49,29 @@
   - Endpoint - `/api/trade` 
   - Method - `PATCH`
   - Required Parameters (`application/json`)
-    - `fieldToUpdate`
-    - `updateValue`
-- Delete / Remove Trade
+    - `tradeId` - Trade ID to be updated. Type - `string`.
+    - `fieldToUpdate` - Either `price`, `quantity` or `action`. Type - `string`
+    - `updateValue` - The intended updated value. Type - `string` (for `action`) and `float` (for `price` and `quantity`)
+    - Sample API Calls
+      - [$DOGEUSD modify BUY trade price to 0.41]()
+      - [$DOGEUSD modify BUY trade quantity to 1010]()
+      - [$DOGEUSD modify SELL trade action to BUY]()
+- Cancel / Remove Trade
   - Endpoint - `/api/trade` 
   - Method - `DELETE`
   - Required Parameters (`application/json`)
     - `tradeId` - Trade ID to be deleted. Type - `string`
+  - [Cancel $DOGEUSD Sell Order]()
 - Fetch Portfolio Summary
   - Endpoint - `/api/portfolio` 
   - Method - `GET`
   - Required Parameters - None
+  - [Get Portfolio Summary](https://reqbin.com/uervxn0k)
 - Fetch Portfolio Returns
   - Endpoint - `/api/returns` 
   - Method - `GET`
   - Required Parameters - None
+  - [Get Portfolio Returns](https://reqbin.com/kd81ylnj)
 - Ping Endpoint
   - Endpoint - `/ping` 
   - Method - `ANY`
