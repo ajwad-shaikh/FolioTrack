@@ -7,13 +7,13 @@ def fetchTradesAgency(include_inactive=False):
     res = {}
     for securityDoc in securities:
         security = securityDoc.to_dict()
-        res[securityDoc.id] = []
-        for trade in security[TRADE_IDS]:
-            tradeDoc = db.collection(TRADES).document(trade).get()
+        res[securityDoc.id] = {}
+        for tradeId in security[TRADE_IDS]:
+            tradeDoc = db.collection(TRADES).document(tradeId).get()
             tradeDocDict = tradeDoc.to_dict()
             tradeDocDict.pop(TICKER, None)
             if tradeDocDict[IS_ACTIVE] or include_inactive:
-                res[securityDoc.id].append(tradeDocDict)
+                res[securityDoc.id][tradeId] = tradeDocDict
     print(res)
     return jsonify(res)
 
